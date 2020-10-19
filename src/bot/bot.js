@@ -55,6 +55,10 @@ const bot = new Discord.Client({
 });
 bot.prefix = settings.prefix;
 bot.xpDelay = new Set();
+
+/**
+ * @todo Xp spam protection
+ */
 // const xpLastMessage = new Map();
 
     //===================
@@ -146,6 +150,9 @@ bot.on('message', async (msg) => {
             .catch(err => console.error(err));
         });
 
+        /**
+         * @todo Xp spam protection
+         */
         //trueLastMessage.set(msg.author.id, msg.content);
         bot.xpDelay.add(msg.author.id);
         setTimeout(() => {
