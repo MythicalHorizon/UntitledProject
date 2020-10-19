@@ -1,0 +1,22 @@
+{
+    "red": "#ff0000",
+    "redDark": "#9b0000",
+    "green": "#00ff00",
+    "greenDark": "#009b00",
+    "blue": "#0000ff",
+    "blueDark": "#00009b",
+    "white": "#fcfcfc",
+    "gray": "#828282",
+    "grayDark": "#515151",
+    "black": "#000000",
+    "yellow": "#ffff00",
+    "gold": "#ffbf00",
+    "orange": "#ff9600",
+    "purple":"#ff00f6",
+    "violet":"#c800ff",
+
+    "blurple": "#7289da",
+
+    "msgBg":"#36393f",
+    "rolesBg":"#2f3136"
+}
