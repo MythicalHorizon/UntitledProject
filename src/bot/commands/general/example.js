@@ -4,8 +4,8 @@ const ms = require('ms');
 module.exports = {
     config: {
         name: 'example',
-        info: 'Przykładowa komenda.',
-        category: 'glowne',
+        info: 'Example command.',
+        category: 'general',
         aliases: ['test']
     },
     run: async (bot, msg) => {

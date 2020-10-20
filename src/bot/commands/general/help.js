@@ -4,10 +4,10 @@ const { readdirSync } = require('fs');
 
 module.exports = {
     config: {
-        name: 'pomoc',
-        info: 'Pomoc bota - Opis wszystkich komend i funkcji.',
-        category: 'glowne',
-        aliases: ['help']
+        name: 'help',
+        info: 'All bot commands.',
+        category: 'general',
+        aliases: ['h']
     },
     run: async (bot, msg, args) => {
         /** @todo Lepszy design komendy */

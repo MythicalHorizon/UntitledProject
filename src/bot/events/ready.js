@@ -26,6 +26,6 @@ module.exports = async bot => {
 
     setInterval(() => {
         bot.guilds.cache.find(g => g.id === settings.guild).channels.cache.find(c => c.id === channels.apiPing)
-        .edit({name: `➤ API Ping: ${ms(bot.ws.ping)}`});
+        .edit({name: `➤ API Ping: ${ms(bot.ws.ping)}`}).catch(err => console.error(err));
     }, apiPingIntervalTime);
 };
