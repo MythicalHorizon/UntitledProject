@@ -1,8 +1,8 @@
 module.exports.settings = {
     prefix: '+',
     status: {
-        title: '🔧 | Reaktywacja bota!',
-        type: 'Streaming', // Playing | Watching | Listening | Streaming
+        title: "🔧 | I'm alive.",
+        type: 'Playing', // Playing | Watching | Listening | Streaming
         url: 'https://twitch.tv/#'
     },
     guild: "652910165145813062"

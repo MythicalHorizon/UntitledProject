@@ -43,6 +43,7 @@ const setupUserData = require('./models/userData.setup');
     //===================
 
     const xpDelayTimeout = ms('10s');
+    let lang;
 
     //===================
     //  Bot Client init
@@ -80,6 +81,22 @@ bot.on('message', async (msg) => {
 
     setupUserData(msg);
 
+
+    await userData.findOne({userID: msg.author.id}, (err, data) => {
+        if(err) return console.error(err);
+        if(data === undefined || data.lang === null) return;
+
+        const langDir = fs.readdirSync(`src/lang/`).filter(f => f.endsWith('.json'));
+        for(const file of langDir){
+            const langName = file.split('.')[0];
+
+            if(data.lang === langName){
+                lang = require(`../lang/${file}`);
+                break;
+            }
+        };
+    });
+
     //===================
     //  Bot Mention
     //===================
@@ -89,9 +106,9 @@ bot.on('message', async (msg) => {
         
         let embed = new Discord.MessageEmbed()
         .setAuthor(bot.user.username, bot.user.avatarURL())
-        .setDescription(`Prefx: \`${bot.prefix}\`\nPomoc: \`${bot.prefix}pomoc\``)
-        .addField('**Linki**', `Spodobał Ci się bot? [Zaproś](https://discord.com/oauth2/authorize?client_id=550768728384733219&scope=bot&permissions=2146958591) go na swój serwer!
-        [Serwer](https://discord.gg/MZ45bGm) Support bota.`)
+        .setDescription(`${lang.prefix}: \`${bot.prefix}\`\n${lang.help}: \`${bot.prefix}help\``)
+        .addField(`**${lang.botMention.links}**`, `${lang.botMention.likedBot} [${lang.invite}](https://discord.com/oauth2/authorize?client_id=550768728384733219&scope=bot&permissions=2146958591) ${lang.botMention.inviteBot}
+        ${lang.botMention.supportServer} [${lang.server}](https://discord.gg/MZ45bGm)`)
         .setColor(Color.white)
         .setTimestamp(new Date());
 
@@ -166,7 +183,7 @@ bot.on('message', async (msg) => {
 
     if(!msg.content.startsWith(bot.prefix)) return;
     let commandFile = bot.commands.get(command) || bot.commands.get(bot.aliases.get(command));
-    if(commandFile) commandFile.run(bot, msg, args);
+    if(commandFile) commandFile.run(bot, msg, args, lang);
 });
 
 bot.login(require('./auth.json').token);

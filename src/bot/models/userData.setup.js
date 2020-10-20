@@ -12,6 +12,7 @@ module.exports = (msg) => {
                 userID: msg.author.id,
                 userTag: msg.author.tag,
                 userName: msg.author.username,
+                lang: "en",
 
                 money: 0,
                 xp: 0,

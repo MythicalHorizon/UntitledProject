@@ -7,6 +7,7 @@ const userData = Schema({
     userID: String,
     userTag: String,
     userName: String,
+    lang: String,
 
     money: Number,
     xp: Number,

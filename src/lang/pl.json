@@ -1,0 +1,13 @@
+{
+    "invite": "Invite",
+    "server": "Server",
+    "prefix": "Prefix",
+    "help": "Help",
+    
+    "botMention": {
+        "links": "Links",
+        "likedBot": "Do you liked the bot?",
+        "inviteBot": "bot to your Discord server!",
+        "supportServer": "Bot support"
+    }
+}
